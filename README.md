@@ -1,7 +1,7 @@
-# Vehicle Detection, Classification, and License Plate Recognition Pipeline
+# Car Detection, Classification, and License Plate Recognition Pipeline
 
-This repository presents a modular computer vision system for **vehicle detection, make classification, license plate detection, and optical character recognition (OCR)**.  
-The pipeline integrates multiple deep learning models, image preprocessing, and structured annotation to create an end-to-end framework for automated vehicle analysis from video input.
+This repository presents a modular computer vision system for **Car detection, make classification, license plate detection, and optical character recognition (OCR)**.  
+The pipeline integrates multiple deep learning models, image preprocessing, and structured annotation to create an end-to-end framework for automated Car analysis from video input.
 
 ---
 
@@ -10,9 +10,9 @@ The pipeline integrates multiple deep learning models, image preprocessing, and 
 The system processes videos through a sequence of independent modules, each handling a specific task:
 
 1. **Frame Loader** – extracts video frames and timestamps, optionally skipping frames for faster processing.  
-2. **Vehicle Detection** – detects vehicles using **YOLO11x (Ultralytics)** and outputs bounding boxes.  
-3. **Make Classification** – classifies each detected vehicle using a custom-trained **YOLO11x-cls** model.  
-4. **License Plate Detection** – detects plates within cropped vehicle images using **YOLOS-Small**.  
+2. **Car Detection** – detects Cars using **YOLO11x (Ultralytics)** and outputs bounding boxes.  
+3. **Make Classification** – classifies each detected Car using a custom-trained **YOLO11x-cls** model.  
+4. **License Plate Detection** – detects plates within cropped Car images using **YOLOS-Small**.  
 5. **OCR (Plate Recognition)** – extracts alphanumeric text from detected plates using **fast-plate-ocr** and regex filtering for Pakistani plate formats.  
 6. **Night-Time Preprocessing (optional)** – enhances low-light frames using Gamma correction and CLAHE for better OCR performance.  
 7. **Annotation and Output** – overlays detection and recognition results on the original frames to produce an annotated output video.
@@ -23,7 +23,7 @@ Each stage operates modularly, allowing for easy testing, replacement, and futur
 
 ## 2. Pipeline Flow
 
-Input Video → Frame Loader → Vehicle Detection (YOLO11x) → Vehicle Make Classification (YOLO11x-cls) → License Plate Detection (YOLOS-Small) → Night-Time Preprocessing (optional) → License Plate OCR (fast-plate-ocr + Regex Filter) → Annotation & Output Video
+Input Video → Frame Loader → Car Detection (YOLO11x) → Car Make Classification (YOLO11x-cls) → License Plate Detection (YOLOS-Small) → Night-Time Preprocessing (optional) → License Plate OCR (fast-plate-ocr + Regex Filter) → Annotation & Output Video
 
 ---
 
@@ -31,8 +31,8 @@ Input Video → Frame Loader → Vehicle Detection (YOLO11x) → Vehicle Make Cl
 
 | **Module** | **Model Used** | **Reported / Observed Accuracy** | **Evaluation Notes** |
 |-------------|----------------|----------------------------------|----------------------|
-| **Vehicle Detection** | YOLO11x (Ultralytics) | ~79.5 mAP<sub>50–95</sub> (COCO benchmark) | Strong general detection; consistent across multiple vehicle types. |
-| **Vehicle Make Classification** | Custom YOLO11x-cls | 98.58% Top-1, 99.74% Top-5 | Trained for 48 epochs (batch 16) on a custom dataset; performs best on clear, large crops. |
+| **Car Detection** | YOLO11x (Ultralytics) | ~79.5 mAP<sub>50–95</sub> (COCO benchmark) | Strong general detection; consistent across multiple Car types. |
+| **Car Make Classification** | Custom YOLO11x-cls | 98.58% Top-1, 99.74% Top-5 | Trained for 48 epochs (batch 16) on a custom dataset; performs best on clear, large crops. |
 | **License Plate Detection** | YOLOS-Small (nickmuchi) | ~49% AP (reported) | Successfully detects plates in most mid-range views; lower accuracy on distant or small crops. |
 | **OCR (Plate Reading)** | fast-plate-ocr (ankandrew) | No fixed benchmark – strong qualitative performance | Performs well on clear and sharp plates; affected by motion blur or extreme lighting. |
 | **Night-time Preprocessing (Optional)** | Gamma + CLAHE | Qualitative improvement | Enhances dimly lit scenes; glare and blackout remain challenging extremes. |
@@ -43,7 +43,7 @@ Input Video → Frame Loader → Vehicle Detection (YOLO11x) → Vehicle Make Cl
 
 | Dataset | Source | Access |
 |----------|---------|--------|
-| **Custom Vehicle Dataset** | Self-annotated via Roboflow | [Roboflow Project 🔗](https://universe.roboflow.com/aimlcv/car_make_classification-2) |
+| **Custom Car Dataset** | Self-annotated via Roboflow | [Roboflow Project 🔗](https://universe.roboflow.com/aimlcv/car_make_classification-2) |
 | **Hugging Face Dataset Copy** | Public hosted version | [Hugging Face Link 🔗](https://huggingface.co/datasets/em4bm4lik/car-make-classification-pk) |
 
 ---
@@ -61,7 +61,7 @@ Input Video → Frame Loader → Vehicle Detection (YOLO11x) → Vehicle Make Cl
 
 This project builds upon several open-source resources:
 
-- [Ultralytics YOLO11](https://github.com/ultralytics/ultralytics) – vehicle detection and classification  
+- [Ultralytics YOLO11](https://github.com/ultralytics/ultralytics) – Car detection and classification  
 - [Nickmuchi YOLOS-Small](https://github.com/nickmuchi/yolos-license-plate) – license plate detection  
 - [Ankandrew fast-plate-ocr](https://github.com/ankandrew/fast-plate-ocr) – OCR for plate reading  
 - [Roboflow](https://roboflow.com) – dataset creation and annotation  
