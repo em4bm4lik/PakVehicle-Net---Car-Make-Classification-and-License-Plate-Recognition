@@ -32,7 +32,7 @@ Input Video → Frame Loader → Car Detection (YOLO11x) → Car Make Classifica
 | **Module** | **Model Used** | **Reported / Observed Accuracy** | **Evaluation Notes** |
 |-------------|----------------|----------------------------------|----------------------|
 | **Car Detection** | YOLO11x (Ultralytics) | ~79.5 mAP<sub>50–95</sub> (COCO benchmark) | Strong general detection; consistent across multiple Car types. |
-| **Car Make Classification** | Custom YOLO11x-cls | 98.58% Top-1, 99.74% Top-5 | Trained for 48 epochs (batch 16) on a custom dataset; performs best on clear, large crops. |
+| **Car Make Classification** | Custom YOLO11x-cls | 98.58% Top-1, 99.78% Top-5 | Trained for 48 epochs (batch 16) on a custom dataset; performs best on clear, large crops. |
 | **License Plate Detection** | YOLOS-Small (nickmuchi) | ~49% AP (reported) | Successfully detects plates in most mid-range views; lower accuracy on distant or small crops. |
 | **OCR (Plate Reading)** | fast-plate-ocr (ankandrew) | No fixed benchmark – strong qualitative performance | Performs well on clear and sharp plates; affected by motion blur or extreme lighting. |
 | **Night-time Preprocessing (Optional)** | Gamma + CLAHE | Qualitative improvement | Enhances dimly lit scenes; glare and blackout remain challenging extremes. |
@@ -43,8 +43,8 @@ Input Video → Frame Loader → Car Detection (YOLO11x) → Car Make Classifica
 
 | Dataset | Source | Access |
 |----------|---------|--------|
-| **Custom Car Dataset** | Self-annotated via Roboflow | [Roboflow Project 🔗](https://universe.roboflow.com/aimlcv/car_make_classification-2) |
-| **Hugging Face Dataset Copy** | Public hosted version | [Hugging Face Link 🔗](https://huggingface.co/datasets/em4bm4lik/car-make-classification-pk) |
+| **Custom Car Dataset** | Self-annotated via Roboflow | [Roboflow Project 🔗](https://universe.roboflow.com/aimlcv/pakvehicle-net/dataset/4) |
+| **Hugging Face Dataset Copy** | Public hosted version | [Hugging Face Link 🔗](https://huggingface.co/datasets/em4bm4lik/PakVehicle-Net) |
 
 ---
 
