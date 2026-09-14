@@ -48,7 +48,12 @@ Input Video → Frame Loader → Car Detection (YOLO11x) → Car Make Classifica
 
 ---
 
-## 5. Future Work
+## 5. Per-Class Results
+Full per-class image counts and precision/recall/F1 are available in [per_class_results.csv](docs/per_class_results.csv).
+
+---
+
+## 6. Future Work
 
 - Add object tracking (e.g., DeepSORT / ByteTrack) for consistent car IDs across frames.  
 - Improve OCR robustness under glare and motion blur.  
@@ -57,7 +62,7 @@ Input Video → Frame Loader → Car Detection (YOLO11x) → Car Make Classifica
 
 ---
 
-## 6. Acknowledgements
+## 7. Acknowledgements
 
 This project builds upon several open-source resources:
 
